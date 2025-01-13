@@ -8,41 +8,7 @@
     <link rel="stylesheet" href="sua.css">
 </head>
 <body>
-<div class="container">
-        <header>
-            <div class="logo">
-                <button class="menu-toggle" onclick="toggleMenu()">☰</button>
-                <a href="#"><img src="./img/CGV_Cinemas.svg" alt="Logo"/></a>
-            </div>
-            <ul class="taikhoan">
-                <li><a href="#" class="imgacc"><img src="./img/icon_account.png"/></a>
-                    <ul class="dangxuat">
-                        <li><a href="#">Đăng xuất</a></li>
-                    </ul>
-                </li>
-                <li><a href="" class="tb">🔔</a>
-                    <ul class="note">
-                        <li><a href="#">Không có thông báo </a></li>
-                    </ul>
-                </li>
-            </ul>
-        </header>
-        <div class="side-menu" id="sideMenu">
-            <h2>Menu</h2><a href="#">Trang Chủ</a>
-            <a href="#">Quản lý phim</a>
-            <a href="#">Quản lý lịch chiếu</a>
-            <a href="#">Quản lý phòng chiếu</a>
-            <a href="#">Quản lý nhân viên</a>
-        </div>
-        <script>
-            function toggleMenu() 
-            {
-                document.getElementById('sideMenu').classList.toggle('open');
-            }
-        </script>
-    </div>
-    <H2>CẬP NHẬT THÔNG TIN PHIM</H2><br>
-    <?php
+<?php
     require_once "config.php";
     if(isset($_GET['ma_phim'])){
         $id= $_GET['ma_phim'];
@@ -68,7 +34,18 @@
         } 
     } 
 </script>
-    <form action="" method="post"><table class="table">
+
+<!-- Phần thân -->
+<div class="grid-container">
+                <div class="top-bar">
+                    <button class="menu-toggle" onclick="toggleMenu()">☰</button>
+                    <a href="Mainpage.php"><img src="imgs/CGV_Cinemas.svg.png" alt="Logo"/></a>
+                    <a href="#" class="imgacc"><img src="imgs/icon_account.png"/></a>
+                </div>
+                <div class="body">
+                <H1>CẬP NHẬT THÔNG TIN PHIM</H1><br>
+                <form action="" method="post">
+                    <table class="table">
                         <tr>
                             <th><label>Mã phim</label></th>
                             <td><input type="text" value="<?php echo $phim['ma_phim'];?>" disabled></td>
@@ -77,9 +54,7 @@
                             <td><input type="date" name="ngay_khoi_chieu" value="<?php echo $phim['ngay_khoi_chieu'];?>"></td>
                             <td rowspan="5"> 
                                     
-                                    <img id="preview" src="<?php echo $phim['file_hinhAnh'];?>" alt="Hình ảnh" style="max-width: 200px;">
-                                    <label for="file" >Chọn tệp:</label> 
-                                    <input type="file" name="file" id="file" accept="image/*" onchange="previewFile()"><br>
+                                    
                                     <p></p>
                             </td>
                         </tr>
@@ -150,11 +125,19 @@
                             
                         </tr>
                     </table>
+                    <div style="float: right;">
+                    <img id="preview" src="<?php echo $phim['file_hinhAnh'];?>" alt="Hình ảnh" style="max-width: 200px;"><br>
+                                    <label for="file" >Chọn tệp:</label> 
+                                    <input type="file" name="file" id="file" accept="image/*" onchange="previewFile()">
+                            </div>
+                            <br style="clear:both">
                     <div>
                         <input type="submit" value="Cập nhật" name="update">
                     </div>
                     
                     </form>
+    </div>
+    
         <?php
         }
 
@@ -181,7 +164,7 @@
             $stmt = $conn->prepare($sql);
             $stmt->bind_param('s', $id);
             if ($stmt->execute()) {
-                echo "<script>alert('Cật nhập dữ liệu thành công');window.location.href = './Main page.php';</script>";
+                echo "<script>alert('Cật nhập dữ liệu thành công');window.location.href = './Mainpage.php';</script>";
             exit;
             } else {
                 echo "Lỗi: " . $stmt->error;
@@ -191,6 +174,18 @@
     }  
         ?>
 
-
+<div class="side-menu" id="sideMenu">
+            <h2>Menu</h2><a href="#">Trang Chủ</a>
+            <a href="#">Quản lý phim</a>
+            <a href="#">Quản lý lịch chiếu</a>
+            <a href="#">Quản lý phòng chiếu</a>
+            <a href="#">Quản lý nhân viên</a>
+        </div>
+        <script>
+            function toggleMenu() 
+            {
+                document.getElementById('sideMenu').classList.toggle('open');
+            }
+        </script>
 </body>
 </html>

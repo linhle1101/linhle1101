@@ -15,7 +15,13 @@ body {
   background-size: cover;
   background-position: center;
 }
-
+.error {
+  color: white;
+  font-size: 14px;
+  margin-top: 10px;
+  text-align: center;
+  font-weight: bold;
+}
 .wrapper {
   width: 420px;
   background: transparent;

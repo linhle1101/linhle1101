@@ -38,6 +38,7 @@
 .body
 {
     grid-area: Body;
+    width: 100%;
     margin: auto auto auto 50px;
 }
 .body table 
@@ -67,6 +68,10 @@
     width: 235px;
     height: 20px;
 
+}
+form {
+    width: 100%;
+    padding: 10px;
 }
 /*Thanh Menu*/
 .side-menu 

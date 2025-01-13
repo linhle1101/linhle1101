@@ -10,7 +10,7 @@
 
         if($result)
         {
-            echo "<script>alert('Xóa phim thành công');window.location.href = './Main page.php';</script>";
+            echo "<script>alert('Xóa phim thành công');window.location.href = './Mainpage.php';</script>";
 
         }
         else

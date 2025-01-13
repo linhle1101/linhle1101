@@ -1,3 +1,6 @@
+<?php
+session_start();
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -15,9 +18,18 @@
     <div class="grid-container">
         <div class="top-bar">
             <button class="menu-toggle" onclick="toggleMenu()">☰</button>
-            <a href="Main page.php"><img src="imgs/CGV_Cinemas.svg.png" alt="Logo"/></a>
-            <a href="#" class="imgacc"><img src="imgs/icon_account.png"/></a>
-            <div class="tb"><a href=""></a>🔔</div>
+            <a href="Mainpage.php"><img src="imgs/CGV_Cinemas.svg.png" alt="Logo"/></a>
+            <div class="user-info">
+            <?php
+                if(isset($_SESSION["user"]))
+                {?>
+                    <span style="color: black;">Xin chào <?php echo $_SESSION["user"];?></span>
+                <?php
+                }
+                ?> 
+            <a href="#"><img src="imgs/icon_account.png"/></a>
+            </div>
+            <br style="clear:both">
         </div>
 
         <div class="side-menu" id="sideMenu">

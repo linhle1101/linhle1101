@@ -7,6 +7,8 @@
         <link rel="stylesheet" href="./AddFilm.css"/>
     </head>
     <body>
+
+    
     <script> 
     function previewFile() { var preview = document.getElementById('preview'); 
     var file = document.getElementById('file').files[0]; 
@@ -21,10 +23,12 @@
         } 
     } 
     </script>
+
+
         <div class="grid-container">
                 <div class="top-bar">
                     <button class="menu-toggle" onclick="toggleMenu()">☰</button>
-                    <a href="Main page.php"><img src="imgs/CGV_Cinemas.svg.png" alt="Logo"/></a>
+                    <a href="Mainpage.php"><img src="imgs/CGV_Cinemas.svg.png" alt="Logo"/></a>
                     <a href="#" class="imgacc"><img src="imgs/icon_account.png"/></a>
                 </div>
                 <div class="body">
